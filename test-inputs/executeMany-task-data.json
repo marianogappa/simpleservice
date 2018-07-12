@@ -1,0 +1,13 @@
+{
+  "requests": [
+    {
+      "url":"http://www.example.org",
+      "body": "sample payload"
+    },
+    {
+      "url":"http://www.wikipedia.org",
+      "body": "sample payload"
+    }        
+  ],
+  "async": true
+}

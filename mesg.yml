@@ -1,0 +1,68 @@
+name: "simpleService"
+description: "example service for mesg job application"
+tasks:
+  execute:
+    inputs:
+      url:
+        type: String
+        description: "e.g. https://google.com"
+        optional: false
+      body:
+        type: String
+        description: "e.g. sample payload"
+        optional: false
+    outputs:
+      success:
+        data:
+          statusCode:
+            type: Number
+            description: "e.g. 200"
+            optional: false
+          body:
+            type: String
+            description: "response POST payload for requesting input url"
+            optional: false
+      error:
+        data:
+          message:
+            type: String
+            description: "explanation of error trying to HTTP POST"
+            optional: false
+  executeMany:
+    inputs:
+      requests:
+        type: Object
+        description: "array of objects containing url and body, each one like the execute task"
+        optional: false
+      async:
+        type: Boolean
+        description: "indicates if HTTP POST requests should be run in parallel"
+        optional: false
+    outputs:
+      success:
+        data:
+          responses:
+            type: Object
+            description: "an array of objects, each one like the response of the execute task"
+            optional: false
+      error:
+        data:
+          message:
+            type: String
+            description: "explanation of error trying to prepare to run requests"
+            optional: false
+events:
+  onRequest:
+    data:
+      date:
+        type: String
+        optional: false
+      id:
+        type: String
+        optional: false
+      body:
+        type: String
+        optional: false
+configuration:
+  ports:
+    - "8080"
