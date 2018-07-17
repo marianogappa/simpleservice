@@ -14,7 +14,7 @@ make test
 
 ## Service configuration
 
-[mesg.yaml](mesg.yaml)
+[mesg.yml](mesg.yml)
 
 ## Test results
 
