@@ -2,4 +2,7 @@ language: go
 go:
   - "1.10.3"
 script:
+  - go get github.com/satori/go.uuid
+  - go get github.com/mesg-foundation/core/api/service
+  - go get google.golang.org/grpc
   - go test ./...
