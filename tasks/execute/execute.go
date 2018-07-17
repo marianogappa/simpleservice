@@ -30,7 +30,7 @@ type Task struct {
 	HTTPClient http.Client
 }
 
-// Process runs one received task and returns key and output for emmision
+// Process runs one received task and returns key and output for emision
 func (s Task) Process(taskData *api.TaskData) (string, string) {
 	var statusCode, body, err = s.doProcess(taskData)
 	if err != nil {
