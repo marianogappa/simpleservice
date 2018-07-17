@@ -5,8 +5,8 @@
       "body": "sample payload"
     },
     {
-      "url":"http://www.wikipedia.org",
-      "body": "sample payload"
+      "url":"http://www.example.com",
+      "body": "different payload"
     }        
   ],
   "async": true

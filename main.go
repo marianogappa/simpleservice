@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -15,7 +16,7 @@ import (
 
 func main() {
 	var (
-		cli        = mustNewServiceClient(os.Getenv("MESG_ENDPOINT")) // In macOS it connects if I use "mesg-core:50052"
+		cli        = mustNewServiceClient(os.Getenv("MESG_ENDPOINT"))
 		stream     = mustListenTaskRequests(cli, os.Getenv("MESG_TOKEN"))
 		httpClient = http.Client{Timeout: 30 * time.Second}
 		tasks      = map[string]task{
@@ -32,13 +33,17 @@ func main() {
 		}
 	)
 	go streamProcessor.mustStart()
-	mustServe(":8080", simpleEndpoint{now: now, uuid: newUUID, emitEvent: emitEvent})
+	mustServe(":8080", simpleEndpoint{now: now, uuid: mustNewUUID, emitEvent: emitEvent})
 }
 
 func now() string {
 	return time.Now().UTC().Format("2006-01-02 03:04:05")
 }
 
-func newUUID() string {
-	return uuid.NewV1().String() // Guaranteed lexicographically sortable
+func mustNewUUID() string {
+	var u, err = uuid.NewV1() // Guaranteed lexicographically sortable
+	if err != nil {
+		log.Fatalf("mustNewUUID: system couldn't generate UUID v1: %v", err)
+	}
+	return u.String()
 }
