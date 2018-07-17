@@ -1,4 +1,6 @@
-# simpleservice - an implementation of a service in the MESG Network
+# simpleservice - [![GoDoc](https://godoc.org/github.com/marianogappa/simpleservice?status.svg)] [![Build Status](https://img.shields.io/travis/marianogappa/simpleservice.svg)](https://travis-ci.org/marianogappa/simpleservice)  [![Go Report Card](https://goreportcard.com/badge/github.com/marianogappa/simpleservice?style=flat-square)](https://goreportcard.com/report/github.com/marianogappa/simpleservice) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/marianogappa/simpleservice/master/LICENSE)
+
+an implementation of a service in the MESG Network
 
 ## Check that builds
 
