@@ -16,6 +16,10 @@ make test
 
 [mesg.yaml](mesg.yaml)
 
+## Test results
+
+[RESULTS.md](RESULTS.md)
+
 ## Features
 
 - Tasks as subpackages implementing the task interface
